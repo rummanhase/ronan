@@ -1,0 +1,118 @@
+{
+    "products": [
+      {
+            "id": 1,
+            "name": "Product 1",
+            "description": "Description for Product 1",
+            "price": 19.99,
+            "category": "Electronics",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 2,
+            "name": "Product 2",
+            "description": "Description for Product 2",
+            "price": 29.99,
+            "category": "Clothing",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 3,
+            "name": "Product 3",
+            "description": "Description for Product 3",
+            "price": 14.99,
+            "category": "Home & Kitchen",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 4,
+            "name": "Product 4",
+            "description": "Description for Product 4",
+            "price": 39.99,
+            "category": "Beauty",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 5,
+            "name": "Product 5",
+            "description": "Description for Product 5",
+            "price": 24.99,
+            "category": "Sports & Outdoors",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 6,
+            "name": "Product 6",
+            "description": "Description for Product 6",
+            "price": 49.99,
+            "category": "Toys & Games",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 7,
+            "name": "Product 7",
+            "description": "Description for Product 7",
+            "price": 19.99,
+            "category": "Books",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 8,
+            "name": "Product 8",
+            "description": "Description for Product 8",
+            "price": 34.99,
+            "category": "Fashion",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 9,
+            "name": "Product 9",
+            "description": "Description for Product 9",
+            "price": 29.99,
+            "category": "Electronics",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 10,
+            "name": "Product 10",
+            "description": "Description for Product 10",
+            "price": 44.99,
+            "category": "Clothing",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 11,
+            "name": "Product 11",
+            "description": "Description for Product 11",
+            "price": 14.99,
+            "category": "Home & Kitchen",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 12,
+            "name": "Product 12",
+            "description": "Description for Product 12",
+            "price": 39.99,
+            "category": "Beauty",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 13,
+            "name": "Product 13",
+            "description": "Description for Product 13",
+            "price": 24.99,
+            "category": "Sports & Outdoors",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          },
+          {
+            "id": 14,
+            "name": "Product 14",
+            "description": "Description for Product 14",
+            "price": 49.99,
+            "category": "Toys & Games",
+            "image": "https://sslimages.shoppersstop.com/sys-master/images/hb0/hf9/29227278368798/SS23METTALIC_DARK_INDIGO_alt2.jpg_2000Wx3000H"
+          }
+        ]
+}
+      
+  

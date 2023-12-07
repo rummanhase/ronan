@@ -1,0 +1,17 @@
+.sidebar-container{
+    flex: 2;
+    margin-right: 5px;
+    min-height: 900px;
+    border: 1px solid #f3f2f2 ;
+    border-radius: 5px;
+    padding: 1em 0.5em;
+}
+.category-filters{
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    font-size: large;
+}
+.category-filters input{
+    margin-right: 10px;
+}
