@@ -20,8 +20,7 @@
     align-items: center;
 }
 .card-img-top{
-    width: 16rem !important;
-    height: 20rem !important; 
+    width: 100% !important;
 }
 .card-desc{
     display: flex;
