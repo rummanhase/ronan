@@ -1,0 +1,12 @@
+@media (min-width:700px) {
+    .my-x-padding {
+      padding-left: 4rem !important;
+      padding-right: 4rem !important;
+    }
+  }
+.my-margin-right{
+    margin-right: 2rem;
+}
+.nav-container{
+  position: fixed; top: 0; left: 0; z-index: 1; width: 100%;
+}

@@ -1,0 +1,11 @@
+.footer-container{
+    width: 100%;
+    background:  rgb(var(--bs-tertiary-bg-rgb));
+    min-height: 200px;
+    margin-top: 50px
+}
+.footer-body{
+    display: flex ;
+    flex-direction: column;
+    justify-content:space-around;
+}
