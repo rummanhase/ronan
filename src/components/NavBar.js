@@ -40,13 +40,14 @@ function NavBar() {
           <Link to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Link>
           </Navbar.Text>
           <Navbar.Text>
+          <Link to="/log">
           <OffcanvasSignIn placement={'end'} name={'end'}/>:''
                {/* {!userName ?  
               
                <span>Signed in as: <a href="#login">Mark Otto</a></span> :
                <span>Sign In</span>
              } */}
-           
+             </Link>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

@@ -20,7 +20,7 @@ const AppState = ({ children }) => {
                   data: {
                           query: `{
       
-                              products {
+                              products(first: 99) {
                                   ageGroup
                                   category
                                   color

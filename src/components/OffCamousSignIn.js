@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import "./styling/SignIn.css"
+import { GoogleLogin } from '@react-oauth/google';
+import "./styling/SignIn.css";
+const CLIENT_ID = ''
 
 function OffcanvasSignIn({ name, ...props }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleLoginSuccess = (msg) => {
+    console.log(msg);
+  }
+
+  const handleLoginFailure = (msg) => {
+    console.log(msg);
+  }
 
   return (
     <>
@@ -26,6 +36,10 @@ function OffcanvasSignIn({ name, ...props }) {
           <div>
             <div>SignUp with your Email Account</div>
             <div>Email Container Body</div>
+          </div>
+          <div>
+          <GoogleLogin onSuccess={handleLoginSuccess}
+      onFailure={handleLoginFailure}/>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
