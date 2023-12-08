@@ -20,7 +20,7 @@ function App() {
         <div className='my-flex content-wrapper'>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/x" element={<MainPage />} />
+            <Route path="/products/:category" element={<MainPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/log" element={<CustomerLoginPage />} />
             <Route path="/products/:productId" element={<ItemDesciptionPage />} />
