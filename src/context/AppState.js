@@ -6,11 +6,19 @@ import axios from "axios";
 const AppState = ({ children }) => {
     const [title , setTitle] = useState("Ronan Work") 
     const [productList , setProductList] = useState([]);
+    const [mensProduct , setMensProduct] = useState([]);
+    const [womensProduct , setWoensProduct] = useState([]);
+    const [unisex , setUniSex] = useState([]);
     const [filteredProduct , setFilteredProduct] = useState(productList);
     const [searchText , setSearchText] = useState('');
     const [category , setCategory] = useState([])
     const [cartItems , setCartItems] = useState([]);
     const [userName , setUserName] = useState('')
+
+    const filterByGender = () => {
+
+    }
+
     useEffect(() => {
       const product_api_call = async () => {
           try {
@@ -25,6 +33,7 @@ const AppState = ({ children }) => {
                                   category
                                   color
                                   createdAt
+                                  discount
                                   fabricMaterial
                                   fabricType
                                   gender
@@ -63,7 +72,7 @@ const AppState = ({ children }) => {
                   headers: {
                       'content-type': 'application/json',
                   }
-              }).then((res) => {
+              }).then((res) => { 
                   setProductList(res.data.data.products)
                   setFilteredProduct(res.data.data.products)
                   // console.log(res.data.data.products)
@@ -87,7 +96,10 @@ const AppState = ({ children }) => {
         searchText , setSearchText,
         category , setCategory,
         cartItems , setCartItems,
-        userName , setUserName
+        userName , setUserName,
+        mensProduct , setMensProduct,
+        womensProduct , setWoensProduct,
+        unisex , setUniSex
       }}
     >
       {children}
