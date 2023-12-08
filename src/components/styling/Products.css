@@ -17,11 +17,11 @@
 
 .card-container{
     margin-bottom: 5px;
+    margin-right: 3px   ;
     align-items: center;
+    width: 14rem;
 }
-.card-img-top{
-    width: 100% !important;
-}
+
 .card-desc{
     display: flex;
     flex-direction: row;
@@ -33,6 +33,43 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+}
+.img-container{
+    width: 100%;
+    height: 12rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.card-img-top>.img-container{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio while fitting into the container */
+    object-position: center;
+}
+.card-text-productName{
+    font-size: 12px;
+    height: 4rem;
+    margin-bottom: 3px;
+}
+.my-section .card-product-pricing{
+ font-size: 1rem;
+ margin: 0;
+ width: 100%;
+ padding: 0.3rem;
+}
+.discount-percentage{
+    color: crimson;
+    font-style: oblique;
+}
+.marked-price{
+    color: #adb5bd;
+    text-decoration: line-through;
+}
+.selling-price{
+    color: forestgreen;
+    font-family: cursive
 }
 .flex-img > .img-container {
     flex-basis: calc(50% - 10px); /* Adjust the value based on your styling */
@@ -49,3 +86,17 @@
         align-items: center;
     }
   }
+
+@media screen and (max-width: 767px) {
+    /* Styles for small screens */
+    width: 12rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Styles for medium screens (tablets) */
+    width: 13rem;
+}
+@media screen and (min-width: 1024px) {
+    /* Styles for large screens (desktops and laptops) */
+}
+  
+    

@@ -12,6 +12,7 @@
     object-fit: cover !important ; /* Preserve aspect ratio and cover the entire container */
   }
   .carousel-inner {
-    height: 300px !important; /* Set a fixed height for the carousel */
+    max-height: 300px !important;
+    min-height: 200px !important;
     border-radius: 7px;
   }

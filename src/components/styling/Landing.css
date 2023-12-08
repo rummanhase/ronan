@@ -1,0 +1,15 @@
+.section-body{
+    display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100vw; /* Allow the section to take the full width of the viewport */
+  margin: auto;
+  margin-bottom: 5px;
+}
+.section-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    padding: 1rem 0;
+    box-shadow: inset 0px 0px 12px 0px rgba(116, 128, 127, 0.38)
+}

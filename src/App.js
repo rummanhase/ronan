@@ -9,6 +9,7 @@ import NoPage from './components/NoPage';
 import SideBar from './components/Products/SideBar';
 import ItemDesciptionPage from './components/Products/ItemDesciptionPage';
 import Footer from './components/Footer';
+import LandingPage from './components/Landing/LandingPage';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <MyCarousel />
         <div className='my-flex content-wrapper'>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/x" element={<MainPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/log" element={<CustomerLoginPage />} />
             <Route path="/products/:productId" element={<ItemDesciptionPage />} />

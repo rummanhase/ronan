@@ -18,7 +18,10 @@ function NavBar() {
     <div className='nav-container'>
       <Navbar expand="lg" className="bg-body-tertiary my-x-padding">
       <Container fluid>
+      <Link to="/">
         <Navbar.Brand>Ronan Faashion</Navbar.Brand>
+      </Link>
+        
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
@@ -40,8 +43,9 @@ function NavBar() {
           <Link to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Link>
           </Navbar.Text>
           <Navbar.Text>
+            
+          <OffcanvasSignIn placement={'end'} name={'end'}/>
           <Link to="/log">
-          <OffcanvasSignIn placement={'end'} name={'end'}/>:''
                {/* {!userName ?  
               
                <span>Signed in as: <a href="#login">Mark Otto</a></span> :
