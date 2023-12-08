@@ -15,9 +15,6 @@ const AppState = ({ children }) => {
     const [cartItems , setCartItems] = useState([]);
     const [userName , setUserName] = useState('')
 
-    const filterByGender = () => {
-
-    }
 
     useEffect(() => {
       const product_api_call = async () => {

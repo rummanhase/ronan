@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useParams } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
-import "../styling/Products.css"
+import "../styling/ItemDescription.css"
 
 function ItemDesciptionPage() {
   const { productId } = useParams();
@@ -24,31 +24,68 @@ function ItemDesciptionPage() {
   }, [productId, productList]);
 
   return (
-    <div>
+    <>
       {product && (
-        <Card className='card-desc' style={{ width: 'auto' }}>
-          <div className='flex-img'>
-          {product.image1 && product.image1.url && (
+        <Card className='card-desc' style={{ width: '100%' }}>
+          <div className='card-img'>
+            <div className="img-container">
+            {product.image1 && product.image1.url && (
               <Card.Img className='img-container' variant="top" src={product.image1.url} alt={product.title} />
           )}
-          {product.image2 && product.image2.url && (
+            </div>
+            <div className="img-container">
+            {product.image1 && product.image1.url && (
               <Card.Img className='img-container' variant="top" src={product.image2.url} alt={product.title} />
           )}
-          {product.image3 && product.image3.url && (
+            </div>
+            <div className="img-container">
+            {product.image3 && product.image3.url && (
               <Card.Img className='img-container' variant="top" src={product.image3.url} alt={product.title} />
           )}
+            </div>
           </div>
+          <div className="card-body">
           <Card.Body>
-            <Card.Title>{product.productName}</Card.Title>
-            <Card.Text>{product.productDiscription}</Card.Text>
+            <Card.Text>{product.subCategory}</Card.Text>
+            <Card.Title className='card-title'>{product.productName}</Card.Title>
+            <Card.Text className='product-desc-text-liner'>{product.productDiscription}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Preferably for {product.ageGroup}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Category {product.category}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Color {product.color}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>fabric material {product.fabricMaterial}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>fabric type {product.fabricType}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>wear for {product.gender}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Product size {product.size}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Size Description {product.sizeDescription}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Style Fit {product.styleFit}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Neck Type {product.styleNeckline}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Sleeve Type {product.styleSleeveLength}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>washing Instruction {product.washingInstruction}</Card.Text>
+            <Card.Text className='product-desc-text-liner'>Maintainance Tips {product.maintainanceTips}</Card.Text>
+            <div className='card-product-pricing flex'>
+          <span className='selling-price'>
+            &#x20B9;{parseInt(product.price - (product.price * (product.discount ? product.discount / 100 : 5/100)))}&nbsp;
+             only
+          </span>
+          <span className='marked-price'>
+            &#x20B9;{product.price}
+          </span>
+          <span className='discount-percentage'>
+          {
+            product.discount ? 
+            product.discount :
+            5
+          }
+          % off</span>
+        </div>
             <div className='flex'>
-              <Button variant="primary" onClick={handleAddToCart}>Add to Cart</Button>
-              <Button disabled variant="secondary">Price - {product.price} Rs</Button>
+              <Button variant="secondary" className='addtocartBtn' onClick={handleAddToCart}>Add to Cart</Button>
             </div>
           </Card.Body>
+          </div>
         </Card>
       )}
-    </div>
+    </>
   );
 }
 

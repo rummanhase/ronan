@@ -53,8 +53,11 @@
     height: 4rem;
     margin-bottom: 3px;
 }
-.card-product-pricing{
-
+.my-section .card-product-pricing{
+ font-size: 1rem;
+ margin: 0;
+ width: 100%;
+ padding: 0.3rem;
 }
 .discount-percentage{
     color: crimson;

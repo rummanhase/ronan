@@ -34,7 +34,7 @@ function MyCarousel() {
     <Carousel className='my-carousel'>
       {slides.map((slide, index) => (
         <Carousel.Item key={index}>
-          <img className="d-block w-100 my-image" src={slide.imageUrl} alt={slide.text} />
+          <img className="d-block w-100 my-image" src={slide.imageUrl} alt={slide.text} style={{height:'300px'}}/>
           <Carousel.Caption>
             <h3>{slide.caption.title}</h3>
             <p>{slide.caption.content}</p>
