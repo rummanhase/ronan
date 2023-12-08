@@ -12,7 +12,7 @@ function OffcanvasSignIn({ name, ...props }) {
   const handleShow = () => setShow(true);
 
   const handleLoginSuccess = (msg) => {
-    console.log(msg);
+    console.log(`mymsg ${msg}`);
   }
 
   const handleLoginFailure = (msg) => {
