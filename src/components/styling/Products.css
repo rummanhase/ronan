@@ -22,9 +22,14 @@
     width: 14rem;
 }
 
-.card-desc{
+.desc-card-name{
     display: flex;
     flex-direction: row;
+    padding: 20px;
+    color: #454545;
+    width: 90%;
+    justify-content: space-around;
+    margin-top: 1.5rem;
 }
 .flex-img {
         flex: 200%;
@@ -34,19 +39,40 @@
         justify-content: space-between;
         align-items: center;
 }
-.img-container{
-    width: 100%;
-    height: 12rem;
+.desc-img-container{
+    width: 50%;
+    height: 20rem;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
+    text-align: center;
+    
 }
-.card-img-top>.img-container{
+.desc-card-images{
+    width: 60%;
+    /* flex: 8 1; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start
+}
+.desc-image{
+    width: auto;
+    height: 100%;
+    object-fit: cover !important;
+    margin: auto;
+}
+.desc-card-images>.img-container{
+    width: 100%;
+    height: 20rem;
+    position: relative;
+    overflow: hidden;
+}
+.desc-card-images-top>.img-container{
     width: 100%;
     height: 100%;
     object-fit: contain; /* Maintain aspect ratio while fitting into the container */
     object-position: center;
+    object-fit: cover !important ;
 }
 .card-text-productName{
     font-size: 12px;
@@ -76,27 +102,58 @@
     margin-bottom: 20px; /* Adjust the margin as needed */
     box-sizing: border-box;
   }
-@media (max-width:700px) {
+@media (max-width:767px) {
     .flex {
       flex-direction: column;
     }
-    .card-desc{
+    .desc-card-name{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
+    .card-product-pricing{
+        font-size: 1rem;
+    margin: 0;
+    border-radius: 6px;
+    border: 1px solid #807F77;
+    padding: 0.3rem;
+    box-shadow: 0px 0px 5px 0px #807F77;
+    display: flex;
+    flex-direction: row;
+    }
+    .desc-img-container{
+        width: 90%;
+        }
+        .desc-card-images{
+            width: 100%;
+            /* flex: 8 1; */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: flex-start
+        }
   }
 
-@media screen and (max-width: 767px) {
-    /* Styles for small screens */
-    width: 12rem;
-}
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     /* Styles for medium screens (tablets) */
-    width: 13rem;
-}
-@media screen and (min-width: 1024px) {
-    /* Styles for large screens (desktops and laptops) */
+    .desc-card-name{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        color: #454545;
+        width: 90%;
+        justify-content: space-around;
+        margin-top: 1.5rem;
+        
+    }
+    .desc-img-container{
+        width: 95%;
+        height: 20rem;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        
+    }
 }
   
     

@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 
 function Item({product}) {
-  console.log(product);
+  // console.log(product);
   const {setCartItems} = useContext(AppContext)
   const handleAddToCart = () => {
     setCartItems(prev => [

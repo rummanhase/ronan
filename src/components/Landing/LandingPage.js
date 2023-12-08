@@ -29,7 +29,7 @@ function LandingPage() {
   return (
     <>
     <div className="my-section">
-    <Link to={`/products/${'mens'}`} key='men'>
+    <Link to={`/categories/${'mens'}`} key='men'>
         <div className="section-header">Fashion For Men</div>
         </Link>
         <div className="section-body">
@@ -41,7 +41,7 @@ function LandingPage() {
         </div>
     </div>
     <div className="my-section">
-        <Link to={`/products/${'womens'}`} key='women'>
+        <Link to={`/categories/${'womens'}`} key='women'>
         <div className="section-header">Fashion For Women</div>
         </Link>
         <div className="section-body">
@@ -53,7 +53,7 @@ function LandingPage() {
         </div>
     </div>
     <div className="my-section">
-        <Link to={`/products/${'clothes'}`} key='cloth'>
+        <Link to={`/categories/${'clothes'}`} key='cloth'>
         <div className="section-header">Fashionable Clothings</div>
         </Link>
         <div className="section-body">

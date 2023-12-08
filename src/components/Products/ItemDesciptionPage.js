@@ -26,23 +26,23 @@ function ItemDesciptionPage() {
   return (
     <>
       {product && (
-        <Card className='card-desc' style={{ width: '100%' }}>
-          <div className='card-img'>
-            <div className="img-container">
+        <Card className='desc-card-name' >
+          <div className='desc-card-images'>
             {product.image1 && product.image1.url && (
-              <Card.Img className='img-container' variant="top" src={product.image1.url} alt={product.title} />
+               <div className="desc-img-container">
+              <Card.Img className='desc-image' variant="top" src={product.image1.url} alt={product.title} />
+              </div>
           )}
-            </div>
-            <div className="img-container">
-            {product.image1 && product.image1.url && (
-              <Card.Img className='img-container' variant="top" src={product.image2.url} alt={product.title} />
+            {product.image2 && product.image2.url && (
+               <div className="desc-img-container">
+              <Card.Img className='desc-image' variant="top" src={product.image2.url} alt={product.title} />
+              </div>
           )}
-            </div>
-            <div className="img-container">
             {product.image3 && product.image3.url && (
-              <Card.Img className='img-container' variant="top" src={product.image3.url} alt={product.title} />
+               <div className="desc-img-container">
+              <Card.Img className='desc-image' variant="top" src={product.image3.url} alt={product.title} />
+              </div>
           )}
-            </div>
           </div>
           <div className="card-body">
           <Card.Body>
