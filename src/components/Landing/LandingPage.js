@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import Item from '../Products/Item';
 import '../styling/Landing.css'
@@ -28,7 +29,9 @@ function LandingPage() {
   return (
     <>
     <div className="my-section">
+    <Link to={`/categories/${'mens'}`} key='men'>
         <div className="section-header">Fashion For Men</div>
+        </Link>
         <div className="section-body">
         {
             mensProduct && mensProduct.map((product , index)=>(
@@ -38,7 +41,9 @@ function LandingPage() {
         </div>
     </div>
     <div className="my-section">
+        <Link to={`/categories/${'womens'}`} key='women'>
         <div className="section-header">Fashion For Women</div>
+        </Link>
         <div className="section-body">
         {
             womensProduct && womensProduct.map((product , index)=>(
@@ -48,7 +53,9 @@ function LandingPage() {
         </div>
     </div>
     <div className="my-section">
+        <Link to={`/categories/${'clothes'}`} key='cloth'>
         <div className="section-header">Fashionable Clothings</div>
+        </Link>
         <div className="section-body">
         {
             unisex && unisex.map((product , index)=>(

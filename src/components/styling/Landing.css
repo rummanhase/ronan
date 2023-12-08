@@ -4,6 +4,7 @@
   width: 100vw; /* Allow the section to take the full width of the viewport */
   margin: auto;
   margin-bottom: 5px;
+  max-width: 1600px; 
 }
 .section-header{
     display: flex;
