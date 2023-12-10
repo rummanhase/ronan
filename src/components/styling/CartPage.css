@@ -4,56 +4,107 @@
     justify-content: space-around;
     max-width: 1300px;
 }
-.img-container{
-  flex: 3;
-  text-align: center;
+
+ .cartpage-container .my-img{
+  width: 100%;
+  height: 100%;
 }
-.my-img{
-  width: 100px !important;
-  height: 100px !important;
-}
-.card-title-container{
+ .cartpage-container .card-title-container{
   flex: 4;
 }
-.card-price-container{
+ .cartpage-container .card-price-container{
   flex: 2;
+  padding: 0;
 }
-.card-quantity-container{
+ .cartpage-container .card-quantity-container{
   flex: 2;
   display: flex;
   align-items: center;
+  padding: 0;
 }
-.cart-item-container{
+ .cartpage-container .cart-item-container{
   margin-top: 5px;
   margin-right: 5px;
 }
-.cart-item{
+ .cartpage-container .cart-item{
   width: 100%;
   display: flex ;
   flex-direction: row;
   margin-bottom: 5px;
-  align-items: center;
+  padding: 1rem;
   justify-content: space-between;
 }
-.my-card-btn{
+.cartpage-container .img-container{
+  flex: 3 1;
+  text-align: center;
+  width: 100px;
+  max-height: 10rem;
+  max-width: 15rem;
+}
+.cartpage-container .cart-item-desc{
+  flex: 7;
+  /* text-align: center; */
+  width: 100px ;
+  min-height: 120px ;
+  margin: auto;
+  padding: 1rem;
+}
+ .cartpage-container .my-card-btn{
   font-size: large;
 }
-.cart-item-container{
+ .cartpage-container .cart-item-container{
   flex: 6;
 }
-.payment-gateway{
+.cartpage-container .payment-gateway{
   margin-top: 5px;
   flex: 4;
 }
-.my-address-form{
+.cartpage-container .my-address-form{
   display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.payment-total-details{
+.cartpage-container .payment-total-details{
   display: flex;
   justify-content: space-between;
 }
+.cart-item-desc .card-product-pricing{
+  font-size: 1rem;
+  margin: 0;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+ }
+ .cart-item-desc .discount-percentage{
+     color: crimson;
+     font-style: oblique;
+ }
+ .cart-item-desc .marked-price{
+     color: #adb5bd;
+     text-decoration: line-through;
+ }
+ .cart-item-desc .selling-price{
+     color: forestgreen;
+     font-family: cursive
+ }
+ .deletebtn{
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+ }
+ .empty-cart-massage{
+  min-height: 25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    border: 1px solid gray;
+    border-radius: 0.3rem;
+    font-size: x-large;
+ }
 @media (max-width:700px) {
     .cartpage-container {
       flex-direction: column;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -9,11 +9,9 @@ import './styling/NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import AppContext from '../context/AppContext';
 import OffcanvasSignIn from './OffCamousSignIn';
 
 function NavBar() {
-  const {userName} = useContext(AppContext)
   return (
     <div className='nav-container'>
       <Navbar expand="lg" className="bg-body-tertiary my-x-padding">
@@ -45,13 +43,6 @@ function NavBar() {
           <Navbar.Text>
             
           <OffcanvasSignIn placement={'end'} name={'end'}/>
-          <Link to="/log">
-               {/* {!userName ?  
-              
-               <span>Signed in as: <a href="#login">Mark Otto</a></span> :
-               <span>Sign In</span>
-             } */}
-             </Link>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

@@ -3,7 +3,7 @@ import NavBar from './components/NavBar';
 import MyCarousel from './components/MyCarousel';
 import { Route, Routes } from 'react-router';
 import MainPage from './components/MainPage';
-import CartPage from './components/CartPage';
+import CartPage from './components/Cart/CartPage';
 import CustomerLoginPage from './components/CustomerLoginPage';
 import NoPage from './components/NoPage';
 import SideBar from './components/Products/SideBar';
