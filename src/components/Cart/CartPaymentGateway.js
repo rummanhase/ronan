@@ -126,7 +126,7 @@ function CartPaymentGateway() {
       <ListGroup variant="flush">
         <ListGroup.Item className='payment-total-details'>
           <span>Subtotal</span>
-          <span>&#x20B9;{billing.total_bill}</span>
+          <span>&#x20B9;{billing.total_bill?billing.total_bill:0}</span>
         </ListGroup.Item>
         <ListGroup.Item className='payment-total-details'>
           <span>Delivery Charge</span>
@@ -138,7 +138,7 @@ function CartPaymentGateway() {
           </ListGroup.Item>
           <ListGroup.Item className='payment-total-details'>
           <span>Grand Total</span>
-          <span>&#x20B9;{billing.total_bill}</span>
+          <span>&#x20B9;{billing.total_bill?billing.total_bill:0}</span>
           </ListGroup.Item>
       </ListGroup>
       <Button variant="secondary" onClick={handleBilling} className="mt-2">
