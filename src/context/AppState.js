@@ -4,7 +4,7 @@ import AppContext from "./AppContext";
 import axios from "axios";
 
 const AppState = ({ children }) => {
-    const [title , setTitle] = useState("Ronan Work") 
+    const [user , setUser] = useState("Ronan Work") 
     const [productList , setProductList] = useState([]);
     const [mensProduct , setMensProduct] = useState([]);
     const [womensProduct , setWoensProduct] = useState([]);
@@ -13,7 +13,8 @@ const AppState = ({ children }) => {
     const [searchText , setSearchText] = useState('');
     const [category , setCategory] = useState([])
     const [cartItems , setCartItems] = useState([]);
-    const [userName , setUserName] = useState('')
+    const [login , setLogin] = useState(false);
+    const [billing , setBilling] = useState()
 
 
     useEffect(() => {
@@ -40,6 +41,7 @@ const AppState = ({ children }) => {
                                   productDiscription
                                   productName
                                   publishedAt
+                                  qty
                                   size
                                   sizeDescription
                                   styleFit
@@ -87,16 +89,17 @@ const AppState = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        title ,setTitle,
+        user , setUser,
         productList,setProductList,
         filteredProduct , setFilteredProduct,
         searchText , setSearchText,
         category , setCategory,
         cartItems , setCartItems,
-        userName , setUserName,
+        login , setLogin,
         mensProduct , setMensProduct,
         womensProduct , setWoensProduct,
-        unisex , setUniSex
+        unisex , setUniSex,
+        billing , setBilling
       }}
     >
       {children}
