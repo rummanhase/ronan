@@ -19,6 +19,7 @@ function CartPage() {
     let totalSum = 0;
     cartItems.map(item=>{
       totalSum = totalSum + parseInt(item.price - item.price*item.discount/100)*item.qty;
+      console.log(item.qty , item.productName);
     })
     setBilling({
       ...billing , 

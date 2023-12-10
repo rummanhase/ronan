@@ -17,10 +17,10 @@ function LandingPage() {
     }
     
     useEffect(() => {
-        if(productList)
+        if(productList){
         setMensProduct(handleFilteration("Men's"))
         setWoensProduct(handleFilteration("Women's"))
-        setUniSex(handleFilteration("Unisex"))
+        setUniSex(handleFilteration("Unisex"))}
       }, [productList]);
 
       useEffect(() => {

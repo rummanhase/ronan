@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CloseButton from 'react-bootstrap/CloseButton';
@@ -45,6 +45,9 @@ function CartItem({item}) {
         }
         )
     }
+    useEffect(()=>{
+        // console.log(item.qty);
+    },[item])
     
 
   return (

@@ -1,53 +1,45 @@
-import { useContext, useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import { GoogleLogin } from '@react-oauth/google';
+import { useContext, useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import "./styling/SignIn.css";
-import AppContext from '../context/AppContext';
+import AppContext from "../context/AppContext";
 
 function OffcanvasSignIn({ name, ...props }) {
-  
-  const {
-    user , setUser,
-    login , setLogin
-  } = useContext(AppContext)
+  const { user, setUser, login, setLogin } = useContext(AppContext);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleLoginSuccess = (response) => {
-    // console.log('Login success:', JSON.stringify(response, null, 2));
-    // const token = ;
+    //   console.log('Login success:', JSON.stringify(response, null, 2));
+    //   // const token = ;
     const decoded = jwtDecode(response.credential);
     // console.log(decoded);
-    setUser(decoded.name)
-    setLogin(true)
-    handleClose()
-  }
-  
+    setUser(decoded.name);
+    setLogin(true);
+    handleClose();
+  };
 
   const handleLoginFailure = (msg) => {
     console.log(msg);
-  }
-  useEffect(()=>{
+  };
+  useEffect(() => {
     // console.log(user);
-  } , [user])
+  }, [user]);
 
   return (
     <>
       <Button variant="secondary" onClick={handleShow} className="me-2">
-        {
-          login === true ? user?user :<>Sign Out</>: <> Sign In</>
-        }
-        
+        {login === true ? user ? user : <>Sign Out</> : <> Sign In</>}
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Sign Up</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body className='signUp-container'>
+        <Offcanvas.Body className="signUp-container">
           {/* <div className="phone_signup_container">
             <div>SignUp with Your Phone Number</div>
             <input type="number" placeholder='XXXXXXXXXX'/>
@@ -57,10 +49,11 @@ function OffcanvasSignIn({ name, ...props }) {
             <div>Email Container Body</div>
           </div> */}
           <div>
-            <GoogleLogin 
+            <GoogleLogin
               onSuccess={handleLoginSuccess}
-                       onFailure={handleLoginFailure}
-          />
+              onError={handleLoginFailure}
+              useOneTap
+            />
           </div>
         </Offcanvas.Body>
       </Offcanvas>
