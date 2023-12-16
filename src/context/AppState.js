@@ -14,7 +14,11 @@ const AppState = ({ children }) => {
     const [category , setCategory] = useState([])
     const [cartItems , setCartItems] = useState([]);
     const [login , setLogin] = useState(false);
-    const [billing , setBilling] = useState()
+    const [billing , setBilling] = useState(
+     { items:[],
+      total_bill:0,
+      address:''}
+    )
 
 
     useEffect(() => {

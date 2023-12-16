@@ -5,21 +5,77 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import AppContext from '../../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 const APIkey =`ee1dae723b4448f6bd5f57abc89a158c`;
 
 function CartPaymentGateway() {
+  const navigate = useNavigate()
+  // const [formData, setFormData] = useState({
+  //   email: '',
+  //   phoneNumber: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   streetAddress1: '',
+  //   streetAddress2: '',
+  //   pinCode: '',
+  //   city: '',
+  //   district: '',
+  //   state: '',
+  // });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    // setFormData({ ...formData, [name]: value });
+    setBilling((prev) => ({
+      ...prev,
+      address: {
+        ...prev.address,
+        [name]: value
+      },
+    }));
+  };
+
+
     const {
-        billing
+        billing , setBilling
     } = useContext(AppContext)
-    console.log(billing)
-    const [customerAddress , setCustomerAddress] = useState({
-        "addressline1":'',
-        "addressline2":'',
-        'PinCode':'',
-        'city':'',
-        'district':'',
-        'state':''
-    })
+    // console.log(billing)
+  
+    const handleBilling = (e) => {
+      e.preventDefault(); 
+
+  if (
+    // formData.streetAddress1 &&
+    // formData.streetAddress2 &&
+    // formData.firstName &&
+    // formData.lastName &&
+    // formData.pinCode &&
+    // formData.city &&
+    // formData.district &&
+    // formData.state
+    billing.address.streetAddress1 &&
+    billing.address.streetAddress2 &&
+    billing.address.firstName &&
+    billing.address.lastName &&
+    billing.address.pinCode &&
+    billing.address.city &&
+    billing.address.district &&
+    billing.address.state
+  ) {
+    // setBilling((prev)=>
+    //   (
+    //     {
+    //       ...prev , 
+    //       address:formData
+    //     }
+    //   ))
+    console.log('Billing:', billing);
+    navigate('/payment');
+  } else {
+    console.log('Please fill in all the required fields.');
+  }
+   };
+
     const [location, setLocation] = useState();
 
     function getLocationInfo(latitude, longitude) {
@@ -28,10 +84,30 @@ function CartPaymentGateway() {
         .then((response) => response.json())
         .then((data) => {
         //   console.log(data);
-          if (data.status.code === 200) {
-            console.log("ADDRESS:", data.results[0].formatted);
-            setLocation(data.results[0].formatted);
-          } else {
+        if (data.status.code === 200) {
+          setLocation(data.results[0].formatted);
+          // setFormData({
+          //   ...formData,
+          //   addressline2: data.results[0].components.road,
+          //   state: data.results[0].components.state,
+          //   district: data.results[0].components.city_district,
+          //   city: data.results[0].components.city,
+          //   pinCode: data.results[0].components.postcode,
+          // });
+        
+          setBilling((prev) => ({
+            ...prev,
+            address: {
+              ...prev.address,
+              addressline2: data.results[0].components.road,
+              state: data.results[0].components.state,
+              district: data.results[0].components.city_district,
+              city: data.results[0].components.city,
+              pinCode: data.results[0].components.postcode,
+            },
+          }));
+        }
+         else {
             console.log("Reverse geolocation request failed.");
           }
         })
@@ -61,7 +137,7 @@ function CartPaymentGateway() {
         navigator.permissions
           .query({ name: "geolocation" })
           .then(function (result) {
-            console.log(result);
+            // console.log(result);
             if (result.state === "granted") {
               //If granted then you can directly call your function here
               navigator.geolocation.getCurrentPosition(success, errors, options);
@@ -77,50 +153,109 @@ function CartPaymentGateway() {
       }
     }, []);
 
-    const handleBilling= ()=>{
-
-    }
+    
   return (
     <div className='payment-gateway'>
+       
       <Alert variant='light'>
           Payment Gateway
         </Alert>
+        <Form className='my-address-form' onSubmit={handleBilling}>
       <Card style={{ maxWidth:'38rem' }}>
       <Card.Body>
-    <Form className='my-address-form'>
-      <Form.Group className="mb-2" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Enter email" />
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="Street Address Line 1"
+          name="streetAddress1"
+          value={billing.address.streetAddress1}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.streetAddress1}
+        />
+        <Form.Control.Feedback type={billing.address.streetAddress1?'valid':'invalid'}>
+            {
+              billing.address.streetAddress1?<span>Please provide a valid state.</span>:''
+}
+          </Form.Control.Feedback>
       </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Phone Number" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="Street Address Line 2"
+          name="streetAddress2"
+          value={billing.address.streetAddress2}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.streetAddress2}
+        />
       </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="First Name" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          value={billing.address.firstName}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.firstName}
+        />
       </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Last Name" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          value={billing.address.lastName}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.lastName}
+        />
       </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Street Address Line 1" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="number"
+          placeholder="Pin Code"
+          name="pinCode"
+          value={billing.address.pinCode}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.pinCode}
+        />
       </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Street Address Line 2" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="City"
+          name="city"
+          value={billing.address.city}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.city}
+        />
       </Form.Group>
-      
-      <Form.Group className="mb-2" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Pin Code" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="District"
+          name="district"
+          value={billing.address.district}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.district}
+        />
       </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="City" />
+
+      <Form.Group className="mb-1">
+        <Form.Control
+          type="text"
+          placeholder="State"
+          name="state"
+          value={billing.address.state}
+          onChange={handleInputChange}
+          isInvalid={!billing.address.state}
+        />
       </Form.Group>
-      
-      <Form.Group className="mb-2" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="District" />
-      </Form.Group>
-      <Form.Group className="mb-2" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="State" />
-      </Form.Group>
-      <Card style={{ maxWidth:'38rem', marginTop:'0.5rem' }}>
+      </Card.Body>
       <Card.Body>
       <Card style={{ maxWidthwidth: '18rem' }}>
       <ListGroup variant="flush">
@@ -141,15 +276,14 @@ function CartPaymentGateway() {
           <span>&#x20B9;{billing.total_bill?billing.total_bill:0}</span>
           </ListGroup.Item>
       </ListGroup>
-      <Button variant="secondary" onClick={handleBilling} className="mt-2">
+      <Button variant="secondary" type='submit' className="mt-2">
         Way to Payment Gateway
       </Button>
     </Card>
       </Card.Body>
     </Card>
     </Form>
-      </Card.Body>
-    </Card>
+
     
       </div>
   )
