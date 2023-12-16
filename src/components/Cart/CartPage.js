@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import "../styling/CartPage.css";
 import Alert from 'react-bootstrap/Alert';
+import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import CartItem from './CartItem';
 import CartPaymentGateway from './CartPaymentGateway';
@@ -37,7 +38,10 @@ function CartPage() {
         </Alert>
       {
       cartItems && cartItems.map((item , index)=>(
+        
+    <Link to={`/products/${item.id}`} key={item.id}>
         <CartItem item={item} key={index}/>
+        </Link>
       ))
     }
     </div>

@@ -1,27 +1,51 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Toast from 'react-bootstrap/Toast'
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import "../styling/ItemDescription.css"
 
 function ItemDesciptionPage() {
   const { productId } = useParams();
-  const { productList } = useContext(AppContext);
+  const { productList , cartItems ,setCartItems } = useContext(AppContext);
   const [product, setProduct] = useState();
+  const [isPresentInCart , setIsPresentInCart] = useState(false)
+  
+  const [showA, setShowA] = useState(false);
+  const [zIndex , setZIndex] = useState(-1)
+  const toggleShowA = async () => {
+    const newShowA = !showA;
+    setShowA(newShowA);
+    setZIndex(1)
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setShowA(!newShowA);
+    setZIndex(-1)
+  };
+  
 
-  const {setCartItems} = useContext(AppContext)
   const handleAddToCart = () => {
+    console.log('handleAddToCart called');
     setCartItems(prev => [
-      ...prev , product
-    ])
+      ...prev, product
+    ]);
+    toggleShowA();
+    setIsPresentInCart(true)
   }
-
+  
   useEffect(() => {
     const foundProduct = productList.find(item => item.id === productId);
     setProduct(foundProduct);
     // console.log(foundProduct);
-  }, [productId, productList]);
+    const isPresent = cartItems.find(item => item.id === productId);
+    if(isPresent){
+      setIsPresentInCart(true)
+    }
+    console.log(isPresent);
+  }, [productId, productList , isPresentInCart]);
 
   return (
     <>
@@ -79,11 +103,39 @@ function ItemDesciptionPage() {
           % off</span>
         </div>
             <div className='flex'>
-              <Button variant="secondary" className='addtocartBtn' onClick={handleAddToCart}>Add to Cart</Button>
+            {
+                !isPresentInCart?
+                <Button variant="secondary" className='addtocartBtn' onClick={handleAddToCart}>Add to Cart</Button>
+                :
+                <>
+                <Button variant="disabled" disabled className='addtocartBtn' onClick={handleAddToCart}>Added to Cart</Button>
+                <Link to="/cart">
+                <Button variant="secondary" className='addtocartBtn'>Check Cart</Button></Link>
+                </>
+              }
             </div>
           </Card.Body>
           </div>
+          <Row className='my-toast' style={{ zIndex }}>
+        <Col md={6} className="mb-2">
+          <Toast show={showA} onClose={toggleShowA}>
+            <h3>
+            <Toast.Header>
+              <strong className="me-auto">Item Added to Cart</strong>
+            </Toast.Header>
+            </h3>
+            <h4><Toast.Body>{product.productDiscription}</Toast.Body></h4>
+            <Toast.Body>
+              <strong className="me-auto">Congratulations</strong>
+            </Toast.Body>
+            
+            <h5><Toast.Body>Happy Shopping</Toast.Body></h5>
+          </Toast>
+        </Col>
+          </Row>
         </Card>
+       
+          
       )}
     </>
   );

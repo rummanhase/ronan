@@ -56,3 +56,12 @@
     margin-top: 1rem;
     font-size: larger;
 }
+.my-toast{
+    left: 81%;
+      position: fixed;
+      top: 57%;
+      z-index: -1;
+      transform: translate(-50% ,-50%);
+      width: 95vw;
+      min-height: 27vh;
+  }

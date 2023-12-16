@@ -14,13 +14,11 @@ function Item({product}) {
   }
   return (
     
-    <Card className='card-container' style={{minWidth:'12rem' }}>
-      <Link to={`/products/${product.id}`} key={product.id}>
+    
+    <Link to={`/products/${product.id}`} key={product.id}><Card className='card-container' style={{minWidth:'12rem' }}>
         <div className="img-container">
         <Card.Img className='card-img-top' variant="top" src={product.image1.url} />
         </div>
-      
-      </Link>
       <Card.Body>
         <Card.Text className='card-text-productName'>{product.productName}</Card.Text>
         <div className='card-product-pricing flex'>
@@ -40,6 +38,7 @@ function Item({product}) {
         </div>
       </Card.Body>
     </Card>
+      </Link>
    
   );
 }

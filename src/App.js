@@ -10,6 +10,7 @@ import SideBar from './components/Products/SideBar';
 import ItemDesciptionPage from './components/Products/ItemDesciptionPage';
 import Footer from './components/Footer';
 import LandingPage from './components/Landing/LandingPage';
+import PaymentStripe from './components/Cart/PaymentStripe';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/log" element={<CustomerLoginPage />} />
             <Route path="/products/:productId" element={<ItemDesciptionPage />} />
+            <Route path="/payment" element={<PaymentStripe />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
         </div>
